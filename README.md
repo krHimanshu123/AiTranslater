@@ -1,70 +1,222 @@
-# Getting Started with Create React App
+# 🌐 AI Translator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, full-stack AI-powered translation application built with React, Node.js, and LibreTranslate. Features a beautiful interface with dark mode, translation history, favorites, and speech synthesis.
 
-## Available Scripts
+![AI Translator Demo](https://img.shields.io/badge/React-19-blue) ![Node.js](https://img.shields.io/badge/Node.js-Express-green) ![MongoDB](https://img.shields.io/badge/Database-MongoDB-green) ![LibreTranslate](https://img.shields.io/badge/Translation-LibreTranslate-orange)
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+- 🌍 **Multi-language Support**: 15+ languages with auto-detection
+- 🎨 **Modern UI**: Beautiful gradient design with Framer Motion animations
+- 🌙 **Dark Mode**: Toggle between light and dark themes
+- 🗣️ **Speech Synthesis**: Text-to-speech for both source and translated text
+- 📋 **Clipboard Integration**: Easy copy functionality
+- 📚 **Translation History**: Keep track of recent translations
+- ⭐ **Favorites**: Save important translations
+- 🎯 **Keyboard Shortcuts**: Ctrl+Enter to translate
+- 📱 **Responsive Design**: Works on desktop and mobile
+- 💾 **Export Functionality**: Export translations as .jsx files
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🏗️ Architecture
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend (React + Vite)
+- **Framework**: React 19 with TypeScript support
+- **Build Tool**: Vite for fast development
+- **Styling**: TailwindCSS with custom animations
+- **Icons**: Lucide React
+- **Animations**: Framer Motion
+- **State Management**: React Hooks
 
-### `npm test`
+### Backend (Node.js + Express)
+- **Runtime**: Node.js with Express.js
+- **Database**: MongoDB with Mongoose ODM
+- **API**: RESTful endpoints
+- **CORS**: Enabled for cross-origin requests
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Translation Engine
+- **Service**: LibreTranslate (self-hosted)
+- **Languages**: 15+ supported languages
+- **Features**: Auto-detection, confidence scoring
 
-### `npm run build`
+## 🚀 Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v18 or higher)
+- MongoDB (local or cloud)
+- Python 3.8+ (for LibreTranslate)
+- Git
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/krHimanshu123/AiTranslater.git
+   cd AiTranslater
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Install dependencies**
+   ```bash
+   # Install root dependencies
+   npm install
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   # Install frontend dependencies
+   cd frontend
+   npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   # Install backend dependencies
+   cd ../backend
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Set up environment variables**
+   ```bash
+   # Create .env file in backend directory
+   cd backend
+   cp .env.example .env
+   ```
+   
+   Add your MongoDB connection string:
+   ```env
+   MONGO_URI=your_mongodb_connection_string
+   PORT=3001
+   ```
 
-## Learn More
+4. **Set up LibreTranslate**
+   ```bash
+   cd ../LibreTranslate
+   pip install -r requirements.txt
+   python main.py
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. **Start the application**
+   
+   **Terminal 1 - Backend:**
+   ```bash
+   cd backend
+   npm start
+   ```
+   
+   **Terminal 2 - Frontend:**
+   ```bash
+   cd frontend
+   npm run dev
+   ```
+   
+   **Terminal 3 - LibreTranslate:**
+   ```bash
+   cd LibreTranslate
+   python main.py
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+6. **Access the application**
+   - Frontend: http://localhost:5173
+   - Backend API: http://localhost:3001
+   - LibreTranslate: http://localhost:5000
 
-### Code Splitting
+## 📖 API Documentation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Translation Endpoint
 
-### Analyzing the Bundle Size
+**POST** `/api/translate`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```json
+{
+  "text": "Hello, world!",
+  "sourceLang": "en",
+  "targetLang": "es"
+}
+```
 
-### Making a Progressive Web App
+**Response:**
+```json
+{
+  "translatedText": "¡Hola, mundo!",
+  "detectedLanguage": "en"
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🌍 Supported Languages
 
-### Advanced Configuration
+- 🇺🇸 English
+- 🇪🇸 Spanish
+- 🇫🇷 French
+- 🇩🇪 German
+- 🇮🇹 Italian
+- 🇵🇹 Portuguese
+- 🇷🇺 Russian
+- 🇯🇵 Japanese
+- 🇰🇷 Korean
+- 🇨🇳 Chinese
+- 🇸🇦 Arabic
+- 🇮🇳 Hindi
+- 🇹🇭 Thai
+- 🇹🇷 Turkish
+- 🌐 Auto-detect
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🛠️ Technologies Used
 
-### Deployment
+### Frontend
+- React 19
+- Vite
+- TailwindCSS
+- Framer Motion
+- Lucide React
+- JavaScript/JSX
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- Axios
+- CORS
+- dotenv
 
-### `npm run build` fails to minify
+### Translation
+- LibreTranslate
+- Argos Translate
+- Python
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🎯 Usage
+
+1. **Select Languages**: Choose source and target languages from the dropdowns
+2. **Enter Text**: Type or paste text in the source textarea
+3. **Translate**: Click the translate button or press Ctrl+Enter
+4. **Listen**: Use the speaker icon to hear the pronunciation
+5. **Copy**: Click the copy icon to copy text to clipboard
+6. **Save**: Add translations to favorites with the star icon
+7. **History**: View recent translations in the history panel
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**Himanshu Kumar**
+- GitHub: [@krHimanshu123](https://github.com/krHimanshu123)
+
+## 🙏 Acknowledgments
+
+- [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate) for the translation engine
+- [React](https://reactjs.org/) for the frontend framework
+- [TailwindCSS](https://tailwindcss.com/) for styling
+- [Framer Motion](https://www.framer.com/motion/) for animations
+- [Lucide](https://lucide.dev/) for icons
+
+## 📊 Project Status
+
+🚀 **Active Development** - This project is actively maintained and new features are being added regularly.
+
+---
+
+⭐ If you found this project helpful, please give it a star!
