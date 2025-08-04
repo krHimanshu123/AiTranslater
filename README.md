@@ -49,6 +49,7 @@ A modern, full-stack AI-powered translation application built with React, Node.j
 
 ### Installation
 
+
 1. **Clone the repository**
    ```bash
    git clone https://github.com/krHimanshu123/AiTranslater.git
