@@ -67,6 +67,7 @@ export default function AITranslator() {
     setIsLoading(false);
   };
 
+  
   const swapLanguages = () => {
     if (sourceLang === "auto") return;
     setSourceLang(targetLang);
