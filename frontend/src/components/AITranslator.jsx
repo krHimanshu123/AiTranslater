@@ -88,6 +88,7 @@ export default function AITranslator() {
     navigator.clipboard.writeText(text);
   };
 
+  
   const addToFavorites = (item) => {
     const favorite = { ...item, id: Date.now() };
     setFavorites((prev) => [favorite, ...prev]);
