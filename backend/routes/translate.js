@@ -28,8 +28,8 @@ router.post('/', async (req, res) => {
       targetLang
     });
 
+    
     await translation.save();
-
     res.json({ translatedText, detectedLanguage });
   } catch (err) {
     console.error(err);
