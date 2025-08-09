@@ -16,6 +16,7 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.error("MongoDB error:", err));
 
+
 app.use('/api/translate', translateRoutes);
 
 const PORT = process.env.PORT || 3001;
