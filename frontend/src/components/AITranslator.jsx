@@ -5,6 +5,7 @@ import {
 import { motion } from "framer-motion";
 
 
+
 const languages = [
   { code: "auto", name: "Auto Detect", flag: "🌐" },
   { code: "en", name: "English", flag: "🇺🇸" },
