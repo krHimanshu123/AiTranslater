@@ -8,5 +8,4 @@ const TranslationSchema = new mongoose.Schema({
   timestamp: { type: Date, default: Date.now }
 });
 
-
 module.exports = mongoose.model('Translation', TranslationSchema);
