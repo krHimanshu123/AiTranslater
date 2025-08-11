@@ -4,4 +4,5 @@ const App = () => {
   return <AITranslator />;
 };
 
+
 export default App;
