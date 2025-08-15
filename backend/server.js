@@ -4,7 +4,6 @@ const cors = require('cors');
 require('dotenv').config();
 
 const translateRoutes = require('./routes/translate');
-
 const app = express();
 app.use(cors({
   origin: 'http://localhost:5173',
