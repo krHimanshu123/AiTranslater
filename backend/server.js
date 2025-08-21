@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
-
 const translateRoutes = require('./routes/translate');
 const app = express();
 app.use(cors({
