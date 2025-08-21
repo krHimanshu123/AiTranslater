@@ -115,6 +115,7 @@ A modern, full-stack AI-powered translation application built with React, Node.j
    - Backend API: http://localhost:3001
    - LibreTranslate: http://localhost:5000
 
+
 ## 📖 API Documentation
 
 ### Translation Endpoint
