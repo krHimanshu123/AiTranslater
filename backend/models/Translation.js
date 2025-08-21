@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const TranslationSchema = new mongoose.Schema({
   sourceText: String,
   translatedText: String,
