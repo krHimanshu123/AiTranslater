@@ -4,7 +4,6 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 
-
 const languages = [
   { code: "auto", name: "Auto Detect", flag: "🌐" },
   { code: "en", name: "English", flag: "🇺🇸" },
