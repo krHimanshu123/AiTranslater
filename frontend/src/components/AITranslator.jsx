@@ -422,3 +422,4 @@ ${document.getElementById("ai-translator-root")?.innerHTML || "// Paste your cod
       </div>
     );
   }
+
