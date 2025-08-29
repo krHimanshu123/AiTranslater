@@ -10,3 +10,4 @@ const TranslationSchema = new mongoose.Schema({
 
 
 module.exports = mongoose.model('Translation', TranslationSchema);
+
