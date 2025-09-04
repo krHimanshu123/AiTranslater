@@ -6,7 +6,6 @@ const axios = require('axios');
 router.post('/', async (req, res) => {
   const { text, sourceLang, targetLang } = req.body;
 
-  
   try {
     const response = await axios.post('http://127.0.0.1:5000/translate', {
       q: text,
