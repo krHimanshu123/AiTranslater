@@ -4,6 +4,7 @@ A modern, full-stack AI-powered translation application built with React, Node.j
 
 ![AI Translator Demo](https://img.shields.io/badge/React-19-blue) ![Node.js](https://img.shields.io/badge/Node.js-Express-green) ![MongoDB](https://img.shields.io/badge/Database-MongoDB-green) ![LibreTranslate](https://img.shields.io/badge/Translation-LibreTranslate-orange)
 
+
 ## ✨ Features
 
 - 🌍 **Multi-language Support**: 15+ languages with auto-detection
