@@ -23,6 +23,7 @@ const languages = [
   { code: "tr", name: "Turkish", flag: "🇹🇷" }
 ];
 
+
 export default function AITranslator() {
   const [sourceText, setSourceText] = useState("");
   const [translatedText, setTranslatedText] = useState("");
