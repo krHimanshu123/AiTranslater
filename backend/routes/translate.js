@@ -26,6 +26,7 @@ router.post('/', async (req, res) => {
       translatedText,
       sourceLang: detectedLanguage,
       targetLang
+      
     });
 
     
