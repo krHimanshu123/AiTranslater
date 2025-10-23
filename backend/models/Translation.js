@@ -7,6 +7,7 @@ const TranslationSchema = new mongoose.Schema({
   sourceLang: String,
   targetLang: String,
   timestamp: { type: Date, default: Date.now }
+  
 });
 
 module.exports = mongoose.model('Translation', TranslationSchema);
