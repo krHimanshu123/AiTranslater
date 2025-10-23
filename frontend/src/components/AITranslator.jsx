@@ -105,6 +105,7 @@ export default function AITranslator() {
     setTranslatedText(item.translatedText);
     setSourceLang(item.sourceLang);
     setTargetLang(item.targetLang);
+    
   };
 
   // Export as .jsx file
