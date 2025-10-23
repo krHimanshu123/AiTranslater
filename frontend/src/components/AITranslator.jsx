@@ -188,6 +188,7 @@ ${document.getElementById("ai-translator-root")?.innerHTML || "// Paste your cod
                 <option key={lang.code} value={lang.code} className="bg-white text-indigo-900">
                   {lang.flag} {lang.name}
                 </option>
+              
               ))}
             </select>
             {detectedLanguage && sourceLang === "auto" && (
