@@ -74,6 +74,7 @@ export default function AITranslator() {
     setSourceLang(targetLang);
     setTargetLang(sourceLang);
     setSourceText(translatedText);
+    
     setTranslatedText(sourceText);
   };
 
