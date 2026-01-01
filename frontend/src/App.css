@@ -47,6 +47,7 @@
 /* Example: If you want to keep the spinning logo for a React/Vite logo, keep this: */
 @keyframes logo-spin {
   from {
+    
     transform: rotate(0deg);
   }
   to {
