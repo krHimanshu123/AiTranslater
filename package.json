@@ -1,6 +1,48 @@
 {
+  "name": "translaix",
+  "version": "1.0.0",
+  "description": "Translaix — a modern, full-stack AI-powered translation application",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run dev:clean && npm run dev:all",
+    "dev:all": "concurrently -n backend,frontend,translate -c green,blue,magenta \"npm run backend\" \"npm run frontend\" \"npm run libretranslate\"",
+    "dev:app": "concurrently -n backend,frontend -c green,blue \"npm run backend\" \"npm run frontend\"",
+    "dev:clean": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/free-dev-ports.ps1",
+    "backend": "cd backend && npm start",
+    "backend:dev": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm run dev",
+    "frontend:build": "cd frontend && npm run build",
+    "libretranslate": "cd LibreTranslate && ..\\.venv\\Scripts\\python.exe main.py",
+    "setup": "cd frontend && npm install && cd ../backend && npm install",
+    "setup:libretranslate": "cd LibreTranslate && ..\\.venv\\Scripts\\python.exe -m pip install -e .",
+    "build": "npm run frontend:build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krHimanshu123/Translaix.git"
+  },
+  "keywords": [
+    "ai",
+    "translator",
+    "react",
+    "nodejs",
+    "libretranslate",
+    "sqlite",
+    "translation",
+    "nlp"
+  ],
+  "author": "Himanshu Kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/krHimanshu123/Translaix/issues"
+  },
+  "homepage": "https://github.com/krHimanshu123/Translaix#readme",
   "dependencies": {
     "framer-motion": "^12.18.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }
 

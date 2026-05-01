@@ -1,8 +1,8 @@
-# 🌐 AI Translator
+# 🌐 Translaix
 
 A modern, full-stack AI-powered translation application built with React, Node.js, and LibreTranslate. Features a beautiful interface with dark mode, translation history, favorites, and speech synthesis.
 
-![AI Translator Demo](https://img.shields.io/badge/React-19-blue) ![Node.js](https://img.shields.io/badge/Node.js-Express-green) ![MongoDB](https://img.shields.io/badge/Database-MongoDB-green) ![LibreTranslate](https://img.shields.io/badge/Translation-LibreTranslate-orange)
+![Translaix Demo](https://img.shields.io/badge/React-19-blue) ![Node.js](https://img.shields.io/badge/Node.js-Express-green) ![SQLite](https://img.shields.io/badge/Database-SQLite-blue) ![LibreTranslate](https://img.shields.io/badge/Translation-LibreTranslate-orange)
 
 
 ## ✨ Features
@@ -30,7 +30,7 @@ A modern, full-stack AI-powered translation application built with React, Node.j
 
 ### Backend (Node.js + Express)
 - **Runtime**: Node.js with Express.js
-- **Database**: MongoDB with Mongoose ODM
+- **Database**: SQLite (better-sqlite3)
 - **API**: RESTful endpoints
 - **CORS**: Enabled for cross-origin requests
 
@@ -44,7 +44,6 @@ A modern, full-stack AI-powered translation application built with React, Node.j
 ### Prerequisites
 
 - Node.js (v18 or higher)
-- MongoDB (local or cloud)
 - Python 3.8+ (for LibreTranslate)
 - Git
 
@@ -53,8 +52,8 @@ A modern, full-stack AI-powered translation application built with React, Node.j
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/krHimanshu123/AiTranslater.git
-   cd AiTranslater
+   git clone https://github.com/krHimanshu123/Translaix.git
+   cd Translaix
    ```
 
 2. **Install dependencies**
@@ -80,8 +79,9 @@ A modern, full-stack AI-powered translation application built with React, Node.j
    
    Add your MongoDB connection string:
    ```env
-   MONGO_URI=your_mongodb_connection_string
    PORT=3001
+   SQLITE_PATH=./data/translations.db
+   LIBRETRANSLATE_URL=http://127.0.0.1:5000
    ```
 
 4. **Set up LibreTranslate**
@@ -170,8 +170,7 @@ A modern, full-stack AI-powered translation application built with React, Node.j
 ### Backend
 - Node.js
 - Express.js
-- MongoDB
-- Mongoose
+- SQLite (better-sqlite3)
 - Axios
 - CORS
 - dotenv

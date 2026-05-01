@@ -1,45 +1,66 @@
 const express = require('express');
+const { sendError } = require('../lib/http');
+const { createTranslation } = require('../services/translationRepository');
+const { translate } = require('../services/libreTranslateClient');
+
 const router = express.Router();
-const Translation = require('../models/Translation');
-const axios = require('axios');
 
 router.post('/', async (req, res) => {
-  const { text, sourceLang, targetLang } = req.body;
+  const { text, sourceLang = 'auto', targetLang } = req.body;
+
+  if (!text || !text.trim()) {
+    return sendError(res, 400, 'Text is required.', 'VALIDATION_ERROR');
+  }
+
+  if (!targetLang) {
+    return sendError(res, 400, 'Target language is required.', 'VALIDATION_ERROR');
+  }
 
   try {
-    const response = await axios.post('http://127.0.0.1:5000/translate', {
-      q: text,
-      source: sourceLang === 'auto' ? 'auto' : sourceLang,
-      target: targetLang,
-      format: "text",
-      api_key: "15432h23i78"
-    });
+    const normalizedText = text.trim();
 
-    const translatedText = response.data.translatedText;
-    const detectedLanguage =
-      typeof response.data.detectedSourceLanguage === 'object'
-        ? response.data.detectedSourceLanguage.language
-        : response.data.detectedSourceLanguage || sourceLang;
-
-    const translation = new Translation({
-      sourceText: text,
-      translatedText,
-      sourceLang: detectedLanguage,
-      
+    const translationResult = await translate({
+      text: normalizedText,
+      sourceLang,
       targetLang
-      
     });
 
-    
-    
-    await translation.save();
-    res.json({ translatedText, detectedLanguage });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Translation failed" });
-    
+    const savedTranslation = createTranslation({
+      sourceText: normalizedText,
+      translatedText: translationResult.translatedText,
+      sourceLang: translationResult.detectedLanguage || sourceLang,
+      targetLang
+    });
+
+    return res.json({
+      success: true,
+      data: {
+        translatedText: translationResult.translatedText,
+        detectedLanguage: translationResult.detectedLanguage || sourceLang,
+        translation: savedTranslation
+      }
+    });
+  } catch (error) {
+    if (error.code === 'ECONNREFUSED' || error.code === 'ENOTFOUND') {
+      return sendError(
+        res,
+        503,
+        'LibreTranslate is unavailable. Start the translation service and try again.',
+        'LIBRETRANSLATE_UNAVAILABLE'
+      );
+    }
+
+    if (error.response) {
+      return sendError(
+        res,
+        error.response.status || 502,
+        error.response.data?.error || 'Translation service returned an unexpected response.',
+        'LIBRETRANSLATE_ERROR'
+      );
+    }
+
+    return sendError(res, 500, 'Translation failed. Please try again.', 'TRANSLATION_FAILED');
   }
 });
 
 module.exports = router;
-
