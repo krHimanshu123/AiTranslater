@@ -8,7 +8,7 @@ AI-powered translation web app built with a React (Vite) frontend and a Node.js/
 
 ## ✨ Features
 
-- Multi-language translation (15+ languages) with auto-detection
+- Multi-language translation (50+ languages) with auto-detection
 - Modern UI with animations + **Dark Mode**
 - Text-to-speech (speech synthesis) for source and translated text
 - Translation history + favorites
